@@ -3,22 +3,40 @@
 {% block title %}Medical Imaging{% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
 {% endblock %}
 
 {% block main %}
     <section class="container">
-        <div class="row">
-            <div class="col-md-2">
+        <div class="row justify-content-center">
+            <div class="col-md-1">
+                <div>
+                    edit block
+                </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8 imageedit">
+                <div class="imagehead">
+                    <p>WW：<input type="text"></p>
+                    <p>WL：<input type="text"></p>
+                </div>
+                <div>
+                    <canvas id="imageedit" width="512px" height="512px"></canvas>
+                </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
+                <div>
+                    label data
+                </div>
             </div>
         </div>
     </section>
 {% endblock %}
 
 {% block script %}
-    <script src="/js/main.js"></script>
+<script>
+    let data = JSON.parse('{{ data|safe }}');
+    console.log(data);
+    let image = document.getElementById("imageedit")
+    </script>
+    <script src="/static/js/main.js"></script>
 {% endblock %}
